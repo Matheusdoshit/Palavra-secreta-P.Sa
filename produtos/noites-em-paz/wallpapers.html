@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Papéis de parede — Noites em Paz</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:540px;height:1170px;overflow:hidden;font-family:Inter,sans-serif}
+  .w{width:540px;height:1170px;position:relative;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 260px;background:radial-gradient(380px 380px at var(--x) 30%,rgba(231,200,135,.18) 0,transparent 70%),linear-gradient(180deg,#0E1D2A 0,#14283A 55%,#1F3A4D 100%)}
+  .moon{position:absolute;top:470px;right:60px;width:70px;height:70px;border-radius:50%;box-shadow:inset -14px -4px 0 0 #E7C887;transform:rotate(-20deg);opacity:.9}
+  i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff}
+  .k{font-size:14px;font-weight:700;letter-spacing:.24em;color:#C79A4B;margin-bottom:22px}
+  .in{font-family:Fraunces,serif;font-size:46px;line-height:1.05}
+  .out{font-family:Fraunces,serif;font-style:italic;font-size:46px;line-height:1.05;color:#E7C887;margin-top:6px}
+  .ref{margin-top:26px;font-size:13px;letter-spacing:.2em;color:#8FA5B6}
+  .hint{margin-top:30px;font-size:13px;color:#6f8496;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div id="w" class="w"></div>
+<script src="conteudo.js"></script>
+<script>
+// Topo livre para o relógio da tela de bloqueio; texto na parte de baixo.
+window.show = (i) => {
+  const extra = { n: 8, inspira: "Medito em ti", expira: "nas vigílias da noite", ref: "Salmo 63:6", titulo: "Para as 3h da manhã" };
+  const nt = i < 7 ? NOITES[i] : extra;
+  const el = document.getElementById("w");
+  el.style.setProperty("--x", (20 + i * 11) + "%");
+  const stars = Array.from({length:26},(_,k)=>`<i style="left:${(k*37+i*13)%100}%;top:${(k*53+i*7)%40+2}%;opacity:${.15+((k*7+i)%6)/10}"></i>`).join("");
+  el.innerHTML = `${stars}<div class="moon"></div>
+    <div class="k">${i < 7 ? "NOITE " + nt.n + " · " + nt.titulo.toUpperCase() : "PARA AS 3H DA MANHÃ"}</div>
+    <div class="in">${nt.inspira}…</div><div class="out">${nt.expira}.</div>
+    <div class="ref">${nt.ref.toUpperCase()}</div>
+    <div class="hint">inspira 4 · expira 6 · repete 6 vezes</div>`;
+};
+show(0);
+</script>
+</body>
+</html>
