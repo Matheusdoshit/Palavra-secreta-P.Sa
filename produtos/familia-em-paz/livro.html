@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Família em Paz — 30 Noites</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page{size:A4;margin:0}
+  :root{--navy:#1F3A4D;--gold:#C79A4B;--gold2:#F2D9A6;--paper:#FFFDF8;--ink:#263040;--ink2:#56607A;--sky:#DDEBF5;--sage:#E1EEDF;--coral:#F9E0D6;--lav:#E9E3F4;--line:#E8DFCF}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Nunito,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pg{width:210mm;height:297mm;padding:15mm 16mm 16mm;position:relative;overflow:hidden;page-break-after:always;background:var(--paper)}
+  h1,h2,h3{font-family:Fraunces,serif;color:var(--navy);line-height:1.08}
+  .k{font-size:9pt;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  .foot{position:absolute;bottom:8mm;left:16mm;right:16mm;display:flex;justify-content:space-between;font-size:8pt;color:#a79f8f;font-weight:700;letter-spacing:.08em}
+
+  /* capa */
+  .cover{background:linear-gradient(180deg,#152B3B 0,#1F3A4D 62%,#2C5470 100%);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:26mm 20mm}
+  .cover h1{color:#fff;font-size:64pt;font-weight:800}
+  .cover .sub{font-family:Fraunces,serif;font-style:italic;font-size:19pt;color:var(--gold2);margin-top:6mm}
+  .cover .moon{width:44mm;height:44mm;border-radius:50%;box-shadow:inset -9mm -3mm 0 0 var(--gold2);transform:rotate(-20deg)}
+  .cover i{position:absolute;border-radius:50%;background:#fff}
+  .lights{display:flex;gap:6mm;margin-top:10mm}
+  .lights span{display:flex;align-items:center;gap:2.5mm;font-weight:800;font-size:11pt}
+  .lights b{width:7mm;height:7mm;border-radius:50%;display:inline-block}
+
+  /* como funciona */
+  .three{display:grid;gap:5mm;margin-top:8mm}
+  .lt{display:grid;grid-template-columns:24mm 1fr;gap:6mm;align-items:center;border-radius:6mm;padding:6mm}
+  .lt .bulb{width:22mm;height:22mm;border-radius:50%;display:grid;place-items:center;font-family:Fraunces,serif;font-weight:800;font-size:22pt}
+  .lt h3{font-size:17pt;margin-bottom:1.5mm}
+  .lt p{font-size:11.5pt;color:var(--ink2);line-height:1.45}
+  .l1{background:#FFF3D6}.l1 .bulb{background:#FFD978;color:#7a5a12;box-shadow:0 0 0 4mm #FFE9B0}
+  .l2{background:var(--lav)}.l2 .bulb{background:#B9A8E0;color:#3a2d63}
+  .l3{background:#E3E8EF}.l3 .bulb{background:var(--navy);color:var(--gold2)}
+  .tip{margin-top:7mm;border:2px dashed var(--gold);border-radius:5mm;padding:5mm 6mm;font-size:11pt;line-height:1.5}
+
+  /* índice */
+  .idx{columns:2;column-gap:8mm;margin-top:7mm}
+  .idx div{break-inside:avoid;display:flex;justify-content:space-between;gap:3mm;padding:2.6mm 0;border-bottom:1px dotted var(--line);font-size:11pt}
+  .idx b{color:var(--navy)}
+  .idx span{font-weight:900;color:var(--gold);white-space:nowrap}
+
+  /* noite */
+  .band{display:flex;align-items:center;gap:5mm;border-radius:6mm;padding:5mm 6mm;margin-bottom:5mm}
+  .band .num{flex:none;width:20mm;height:20mm;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:Fraunces,serif;font-weight:800;font-size:22pt;color:var(--navy)}
+  .band h2{font-size:21pt}
+  .band .meta{font-size:9.5pt;font-weight:800;color:var(--ink2);margin-top:1mm}
+  .band .tag{display:inline-block;background:#fff;border-radius:99px;padding:.6mm 3mm;margin-left:2mm;color:var(--navy)}
+  .story{font-size:12.6pt;line-height:1.55;padding:0 1mm}
+  .story::first-letter{font-family:Fraunces,serif;font-weight:800;font-size:30pt;float:left;line-height:.9;margin:1mm 2mm 0 0;color:var(--gold)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:5mm}
+  .card{border-radius:5mm;padding:4mm 5mm}
+  .card .k{display:block;margin-bottom:1.5mm;font-size:8pt}
+  .card.q{background:var(--lav)}
+  .card.q p{font-size:11.2pt;font-weight:700;line-height:1.4}
+  .card.o{background:#E3E8EF}
+  .card.o p{font-size:11pt;line-height:1.35;font-weight:700;color:var(--navy);margin:.8mm 0}
+  .card.o p::after{content:" ↺";color:var(--gold);font-weight:900}
+  .card.o small{display:block;font-size:8pt;color:var(--ink2);margin-top:1.5mm}
+  .pill{display:flex;align-items:center;gap:4mm;margin-top:4mm;background:var(--navy);color:#fff;border-radius:99px;padding:3mm 4mm 3mm 6mm}
+  .pill .k{color:var(--gold2)}
+  .pill b{font-family:Fraunces,serif;font-size:17pt;letter-spacing:.06em;color:#fff}
+  .pill span{margin-left:auto;font-size:9pt;opacity:.8}
+  .draw{position:absolute;left:16mm;right:16mm;bottom:16mm;border:2.5px dashed #cfc3ad;border-radius:6mm;padding:4mm 5mm}
+  .draw .k{font-size:8pt}
+  .draw p{font-size:11pt;font-weight:800;color:var(--ink2)}
+
+  /* quadro + adesivos */
+  .board{display:grid;grid-template-columns:repeat(6,1fr);gap:4mm;margin-top:7mm}
+  .board div{aspect-ratio:1;border-radius:50%;border:2.5px dashed var(--gold);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:800;font-size:16pt;color:#d5c29c}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:6mm}
+  .steps div{border-radius:4mm;padding:3.5mm;font-size:10pt;font-weight:800;text-align:center}
+  .stk{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm;margin-top:7mm}
+  .stk div{aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px dashed #b9ad97}
+  .stk small{font-size:7pt;font-weight:900;color:var(--ink2)}
+  .stk b{font-family:Fraunces,serif;font-size:9.6pt;color:var(--navy);letter-spacing:.02em;padding:0 1mm}
+
+  /* orações dos pais */
+  .pp{margin-top:6mm;display:grid;gap:5mm}
+  .pp div{border-left:3px solid var(--gold);padding:1mm 0 1mm 6mm}
+  .pp h3{font-size:14pt;margin-bottom:1.5mm}
+  .pp p{font-family:Fraunces,serif;font-style:italic;font-size:11.5pt;line-height:1.5;color:var(--ink2)}
+
+  /* certificado */
+  .cert{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:5mm solid var(--paper);outline:2px solid var(--gold);outline-offset:-9mm;background:radial-gradient(circle at 50% 30%,#FFF6E0,var(--paper) 70%)}
+  .cert h1{font-size:40pt;margin:5mm 0}
+  .cert .name{width:120mm;border-bottom:2px solid var(--navy);height:16mm;margin:10mm 0 3mm}
+  .medal{width:36mm;height:36mm;border-radius:50%;background:conic-gradient(var(--gold),var(--gold2),var(--gold));display:grid;place-items:center}
+  .medal div{width:28mm;height:28mm;border-radius:50%;background:var(--navy);color:var(--gold2);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:800;font-size:22pt}
+</style>
+</head>
+<body>
+<div id="book"></div>
+<script src="conteudo.js"></script>
+<script>
+const COLORS = ["var(--sky)","var(--sage)","var(--coral)","var(--lav)","#FFF0CC"];
+const foot = p => `<div class="foot"><span>FAMÍLIA EM PAZ · 30 NOITES</span><span>${p}</span></div>`;
+let pg = 1, h = "";
+
+const stars = Array.from({length:40},(_,i)=>{const s=1+(i%3);return `<i style="width:${s}mm;height:${s}mm;left:${(i*37)%100}%;top:${(i*53)%55}%;opacity:${.25+((i*7)%5)/10}"></i>`}).join("");
+h += `<section class="pg cover">${stars}
+  <div><div class="moon"></div></div>
+  <div><div class="k" style="color:var(--gold2)">30 noites · 10 minutos antes de dormir</div>
+    <h1 style="margin-top:4mm">Família<br>em Paz</h1>
+    <div class="sub">Histórias, perguntas e orações<br>para seu filho largar a tela e dormir em paz</div>
+    <div class="lights"><span><b style="background:#FFD978"></b>Luz acesa</span><span><b style="background:#B9A8E0"></b>Luz baixa</span><span><b style="background:#0d1b26;border:1px solid var(--gold2)"></b>Luz apagada</span></div></div>
+  <div style="font-size:10pt;opacity:.65;font-weight:700">Uma série Palavra Secreta · para crianças de 4 a 10 anos</div></section>`;
+
+h += `<section class="pg"><div class="k">Antes da primeira noite</div>
+  <h1 style="font-size:28pt;margin:3mm 0 3mm">O Ritual das 3 Luzes</h1>
+  <p style="font-size:12pt;color:var(--ink2);line-height:1.5">Criança não dorme quando mandam. Dorme quando o corpo e o coração entendem que o dia acabou. Este ritual de 10 minutos faz exatamente isso: vai apagando o dia aos poucos, uma luz de cada vez. Com o tempo, a criança passa a <b>pedir</b> a hora da história, e a tela perde a graça.</p>
+  <div class="three">
+    <div class="lt l1"><div class="bulb">1</div><div><h3>Luz acesa · a história</h3><p>Leia a história da noite em voz alta, sem pressa. São 2 minutos. Faça vozes, pare nas partes de suspense. Se a criança já lê, revezem.</p></div></div>
+    <div class="lt l2"><div class="bulb">2</div><div><h3>Luz baixa · a pergunta</h3><p>Diminua a luz e faça a pergunta da noite. Ela liga a história ao dia da criança. <b>Só ouça.</b> Não corrija, não dê sermão. É aqui que seu filho vai te contar coisas que não conta no resto do dia.</p></div></div>
+    <div class="lt l3"><div class="bulb">3</div><div><h3>Luz apagada · oração-eco e palavra-travesseiro</h3><p>No escuro, você fala uma linha da oração e a criança repete (↺). Depois, entregue a <b>palavra-travesseiro</b>: “Hoje você dorme com a palavra CORAGEM”. No dia seguinte, ela cola o adesivo da palavra no Quadro das 30 Noites.</p></div></div>
+  </div>
+  <div class="tip"><b>Dica de ouro:</b> desenhar fica para o dia seguinte. Cada noite tem uma atividade para colorir no café da manhã ou depois da escola. Isso mantém a história viva o dia inteiro e cria vontade de chegar a próxima noite.</div>
+  ${foot(pg+=1)}</section>`;
+
+const byEmo = NOITES.map(n=>[n.emocao,n.n,n.titulo]).sort((a,b)=>a[0].localeCompare(b[0],"pt"));
+h += `<section class="pg"><div class="k">Índice para os pais</div>
+  <h1 style="font-size:26pt;margin:3mm 0 2mm">Qual noite ler hoje?</h1>
+  <p style="font-size:11.5pt;color:var(--ink2)">Pode seguir em ordem, de 1 a 30. Mas, se aconteceu alguma coisa no dia, procure aqui a emoção e leia a noite certa para o momento.</p>
+  <div class="idx">${byEmo.map(([e,n,t])=>`<div><span style="color:var(--ink);font-weight:700;text-transform:capitalize">${e}</span><span>Noite ${n}</span></div>`).join("")}</div>
+  ${foot(pg+=1)}</section>`;
+
+NOITES.forEach((nt,i)=>{
+  h += `<section class="pg">
+    <div class="band" style="background:${COLORS[i%COLORS.length]}"><div class="num">${nt.n}</div><div><div class="k">Noite ${nt.n} de 30</div><h2>${nt.titulo}</h2><div class="meta">${nt.ref}<span class="tag">${nt.emocao}</span></div></div></div>
+    <div class="k" style="margin-bottom:2mm">● Luz acesa · leia em voz alta</div>
+    <p class="story">${nt.historia}</p>
+    <div class="row2">
+      <div class="card q"><span class="k">● Luz baixa · pergunte</span><p>${nt.pergunta}</p></div>
+      <div class="card o"><span class="k">● Luz apagada · oração-eco</span>${nt.oracao.map(l=>`<p>${l}</p>`).join("")}<small>↺ a criança repete cada linha</small></div>
+    </div>
+    <div class="pill"><span class="k">Palavra-travesseiro</span><b>${nt.palavra}</b><span>cole o adesivo amanhã ✓</span></div>
+    <div class="draw" id="d${nt.n}"><span class="k">Amanhã · para desenhar</span><p>${nt.atividade}</p></div>
+    ${foot(pg+=1)}</section>`;
+});
+
+h += `<section class="pg"><div class="k">Imprima e cole na parede do quarto</div>
+  <h1 style="font-size:30pt;margin:3mm 0">Quadro das 30 Noites</h1>
+  <div class="steps">
+    ${[["🛁 Banho","#DDEBF5"],["🪥 Dentes","#E1EEDF"],["👕 Pijama","#F9E0D6"],["💡 Luz acesa: história","#FFF3D6"],["🔅 Luz baixa: pergunta","#E9E3F4"],["🌙 Luz apagada: oração","#E3E8EF"]].map(([t,c])=>`<div style="background:${c}">${t}</div>`).join("")}
+  </div>
+  <p style="margin-top:6mm;font-size:11.5pt;color:var(--ink2)">Toda manhã, cole o adesivo da palavra-travesseiro da noite anterior no círculo do número certo.</p>
+  <div class="board">${NOITES.map(n=>`<div>${n.n}</div>`).join("")}</div>
+  ${foot(pg+=1)}</section>`;
+
+h += `<section class="pg"><div class="k">Recorte (ou imprima em papel adesivo)</div>
+  <h1 style="font-size:26pt;margin:3mm 0">Adesivos das palavras-travesseiro</h1>
+  <div class="stk">${NOITES.map((n,i)=>`<div style="background:${COLORS[i%COLORS.length]}"><small>NOITE ${n.n}</small><b>${n.palavra}</b></div>`).join("")}</div>
+  ${foot(pg+=1)}</section>`;
+
+h += `<section class="pg"><div class="k">Bônus · Para os pais</div>
+  <h1 style="font-size:26pt;margin:3mm 0">Orações por cada fase</h1>
+  <p style="font-size:11.5pt;color:var(--ink2)">Para você orar sozinho, depois que a luz apagar.</p>
+  <div class="pp">${ORACOES_PAIS.map(([t,o])=>`<div><h3>${t}</h3><p>${o}</p></div>`).join("")}</div>
+  ${foot(pg+=1)}</section>`;
+
+h += `<section class="pg cert"><div class="medal"><div>30</div></div>
+  <div class="k" style="margin-top:8mm">Certificado</div>
+  <h1>Completei as 30 Noites!</h1>
+  <p style="font-size:13pt;color:var(--ink2);max-width:130mm">Este certificado é para uma criança muito corajosa, que ouviu 30 histórias, respondeu 30 perguntas e dormiu com 30 palavras especiais.</p>
+  <div class="name"></div><div style="font-size:10pt;font-weight:800;color:var(--ink2)">nome</div>
+  <p style="font-family:Fraunces,serif;font-style:italic;font-size:14pt;color:var(--navy);margin-top:12mm">“Eu estou com vocês todos os dias.” · Mateus 28:20</p>
+  </section>`;
+
+document.getElementById("book").innerHTML = h;
+
+// A área de desenho ocupa todo o espaço que sobrar abaixo da palavra-travesseiro.
+window.fitDraw = () => document.querySelectorAll(".draw").forEach(d => {
+  const pg = d.closest(".pg"), pill = pg.querySelector(".pill");
+  d.style.top = (pill.getBoundingClientRect().bottom - pg.getBoundingClientRect().top + 18) + "px";
+});
+fitDraw();
+document.fonts.ready.then(fitDraw);
+</script>
+</body>
+</html>
