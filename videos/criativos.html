@@ -53,6 +53,16 @@
   .ph i{display:block;height:6px;border-radius:6px;background:var(--line)}
   .ph i.g{background:var(--gold);width:60%}
   .seal{position:absolute;left:-14px;bottom:20px;width:96px;height:96px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;text-align:center;font-weight:800;font-size:15px;line-height:1.1;transform:rotate(-10deg);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  /* ---- orgânico: zona segura do TikTok/Reels (ícones à direita, legenda embaixo) ---- */
+  .org #scene{right:96px;top:150px;bottom:250px}
+  .org #brand{display:none}
+  .orb{align-self:center;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#E7C887,#C79A4B 60%,#8a6a30);box-shadow:0 0 80px rgba(231,200,135,.55)}
+  .bw{position:relative;align-self:center;text-align:center;height:120px;width:100%}
+  .bw > div{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .bw small{font-size:16px;letter-spacing:.24em;font-weight:800;color:var(--gold)}
+  .bw span{font-family:Fraunces,serif;font-size:36px;color:#fff;line-height:1.1}
+  .cnt{font-size:20px;font-weight:700;text-align:center;color:#8FA5B6}
+  .key{display:inline-block;background:var(--gold);color:#1E2430;padding:0 14px;border-radius:12px}
   /* barra de progresso + marca */
   #prog{position:absolute;left:0;top:0;height:5px;background:var(--gold);width:0}
   #brand{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-family:Fraunces,serif;font-size:18px;letter-spacing:.06em;opacity:.55}
@@ -128,6 +138,75 @@ const VIDEOS = {
       ${MOCK}
       <div class="p c a" data-d=".5">5 minutos por dia para acalmar a mente e voltar a ter clareza.</div>` },
     OFFER("light")
+  ],
+  /* ================= ORGÂNICO (gancho no quadro 0, CTA de comentário, loop) ================= */
+
+  /* O1: 3h da manhã. O fim emenda no começo (loop). */
+  "org-01-tres-da-manha": [
+    { dur: 2.2, theme: "dark", html: `
+      <div class="k a" data-d="-1">ansiedade à noite</div>
+      <div class="h a" data-d="-1">Acorda às 3h <span class="hl">sem motivo?</span></div>` },
+    { dur: 2.6, theme: "dark", html: `
+      <div class="p a" data-d="0">Seu corpo descansou.</div>
+      <div class="h a" data-d=".5">Sua mente, <span class="hl">não.</span></div>` },
+    { dur: 3.6, theme: "light", html: `
+      <div class="k a" data-d="0">Faz isso antes de deitar:</div>
+      <div class="row a" data-d=".2"><span class="num">1</span>Escreve o pensamento que não para</div>
+      <div class="row a" data-d=".9"><span class="num">2</span>Dobra o papel ao meio</div>
+      <div class="row a" data-d="1.6"><span class="num">3</span>Respira 6x com uma frase</div>` },
+    { dur: 2.8, theme: "dark", html: `
+      <div class="h a" data-d="0">Comenta <span class="key">NOITE</span></div>
+      <div class="p a" data-d=".4">que eu te mando as 7 frases, uma para cada pensamento.</div>
+      <div class="p a" data-d="1.6" style="color:#E7C887">…e para de acordar às 3h.</div>` }
+  ],
+
+  /* O2: Respira comigo. Retenção máxima: o vídeo É a experiência. */
+  "org-02-respira-comigo": [
+    { dur: 2.2, theme: "dark", html: `
+      <div class="k a" data-d="-1">faz comigo · 10 segundos</div>
+      <div class="h a" data-d="-1">Sua ansiedade vai baixar <span class="hl">antes do vídeo acabar.</span></div>` },
+    { dur: 10.4, theme: "dark", html: `
+      <div class="orb a" data-fx="breath" data-d=".2"></div>
+      <div class="bw a" data-d=".2">
+        <div data-phase="in"><small>INSPIRA</small><span>“Em paz me deito…”</span></div>
+        <div data-phase="out"><small>EXPIRA</small><span>“…e durmo em segurança.”</span></div>
+      </div>
+      <div class="cnt a" data-d=".2" data-count=".2"></div>` },
+    { dur: 3.0, theme: "dark", html: `
+      <div class="p a" data-d="0">Sentiu o peito abrir?</div>
+      <div class="h m a" data-d=".3">Comenta <span class="key">NOITE</span> que eu te mando as outras 6.</div>
+      <div class="ref a" data-d=".9">SALMO 4:8</div>` }
+  ],
+
+  /* O3: Teste. Gera comentário com número. */
+  "org-03-teste-sobrecarga": [
+    { dur: 2.0, theme: "light", html: `
+      <div class="k a" data-d="-1">cansaço mental · teste</div>
+      <div class="h a" data-d="-1">Se você tem 2 desses 3, sua mente está <span class="hl">pedindo socorro.</span></div>` },
+    { dur: 4.6, theme: "light", html: `
+      <div class="row a" data-d="0"><span class="num">1</span>Acorda cansado mesmo dormindo 8h</div>
+      <div class="row a" data-d="1.2"><span class="num">2</span>Repassa conversas na cama</div>
+      <div class="row a" data-d="2.4"><span class="num">3</span>Aperto no peito sem motivo</div>` },
+    { dur: 3.4, theme: "dark", html: `
+      <div class="h a" data-d="0">Quantos você marcou?</div>
+      <div class="p a" data-d=".4">Comenta o número 👇</div>
+      <div class="p a" data-d="1.1" style="color:#E7C887">Quem marcar 2 ou mais, eu respondo com o exercício certo.</div>` }
+  ],
+
+  /* O4: Papel dobrado. Curiosidade pura. */
+  "org-04-papel-dobrado": [
+    { dur: 2.4, theme: "dark", html: `
+      <div class="k a" data-d="-1">como parar de pensar demais</div>
+      <div class="h a" data-d="-1">Por que tem gente dormindo com um <span class="hl">papel dobrado</span> do lado da cama?</div>` },
+    { dur: 3.2, theme: "light", html: `
+      <div class="p a" data-d="0">Antes de deitar, ela escreve o pensamento que não para.</div>
+      <div class="h m a" data-d=".8">Dobra. E diz: <span class="hl">“amanhã eu resolvo”.</span></div>` },
+    { dur: 3.0, theme: "light", html: `
+      <div class="h m a" data-d="0">Pensamento escrito <span class="hl">para de girar.</span></div>
+      <div class="p a" data-d=".7">O cérebro entende que aquilo está guardado.</div>` },
+    { dur: 2.8, theme: "dark", html: `
+      <div class="p a" data-d="0">Quer o método das 7 noites?</div>
+      <div class="h a" data-d=".3">Comenta <span class="key">NOITE</span></div>` }
   ]
 };
 
@@ -147,7 +226,7 @@ function render(name, t){
   const stage = document.getElementById("stage"), box = document.getElementById("scene");
   if (current !== name || curIdx !== idx){
     current = name; curIdx = idx;
-    stage.className = sc.theme; box.innerHTML = sc.html;
+    stage.className = sc.theme + (name.startsWith("org") ? " org" : ""); box.innerHTML = sc.html;
   }
   // fundo com leve zoom contínuo (dá sensação de movimento)
   document.getElementById("bg").style.transform = `scale(${1 + 0.06 * (t/total)}) rotate(${0.6*Math.sin(t/3)}deg)`;
@@ -159,9 +238,23 @@ function render(name, t){
     const p = clamp((lt - d) / 0.45), e = ease(p);
     let tr = `translateY(${(1-e)*28}px)`;
     if (fx === "pop") tr = `scale(${0.6 + 0.4*easeBack(p)})`;
+    if (fx === "breath"){
+      const ph = Math.max(0, lt - d) % 10;
+      const k = ph < 4 ? ease(ph/4) : 1 - ease((ph-4)/6);
+      tr = `scale(${(0.55 + 0.45*k) * (0.6 + 0.4*easeBack(p))})`;
+    }
     if (fx === "pulse") tr = `translateY(${(1-e)*28}px) scale(${1 + 0.04*Math.sin(Math.max(0,lt-d-0.45)*7)})`;
     el.style.opacity = Math.min(e, out);
     el.style.transform = tr;
+    el.querySelectorAll("[data-phase]").forEach(ch => {
+      const ph = Math.max(0, lt - d) % 10;
+      const fade = ch.dataset.phase === "in" ? clamp(Math.min(ph/0.3, (4-ph)/0.3)) : clamp(Math.min((ph-4)/0.3, (10-ph)/0.3));
+      ch.style.opacity = fade;
+    });
+    if (el.dataset.count !== undefined){
+      const ph = Math.max(0, lt - parseFloat(el.dataset.count)) % 10;
+      el.textContent = ph < 4 ? `inspira · ${Math.ceil(4-ph)}` : `expira · ${Math.ceil(10-ph)}`;
+    }
     if (el.dataset.type){
       const txt = el.dataset.type, n = Math.floor(clamp((lt - d) * parseFloat(el.dataset.speed), 0, txt.length));
       el.textContent = txt.slice(0, n);

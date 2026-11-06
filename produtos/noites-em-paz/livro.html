@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Noites em Paz — Protocolo de 7 Noites</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page{size:148mm 210mm;margin:0}
+  :root{--navy:#14283A;--navy2:#1F3A4D;--gold:#C79A4B;--gold2:#E7C887;--paper:#FBF7F0;--ink:#1E2430;--ink2:#4A5262;--line:#E4DACA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,sans-serif;color:var(--ink);font-size:9.6pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pg{width:148mm;height:210mm;padding:13mm 14mm 16mm;position:relative;overflow:hidden;page-break-after:always;background:var(--paper)}
+  .pg.dark{background:radial-gradient(90mm 90mm at 80% 10%,#24496380 0,transparent 70%),var(--navy);color:#DCE4EA}
+  h1,h2,h3{font-family:Fraunces,serif;color:var(--navy2);line-height:1.1}
+  .dark h1,.dark h2,.dark h3{color:#fff}
+  .k{font-size:7.5pt;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  .foot{position:absolute;bottom:8mm;left:15mm;right:15mm;display:flex;justify-content:space-between;font-size:7pt;color:#9a9182;letter-spacing:.08em}
+  .dark .foot{color:#6f8496}
+  p+p{margin-top:.7em}
+
+  /* capa */
+  .cover{display:flex;flex-direction:column;justify-content:space-between;padding:22mm 16mm}
+  .cover h1{font-size:44pt;letter-spacing:-.01em}
+  .cover .moon{width:34mm;height:34mm;border-radius:50%;box-shadow:inset -7mm -2mm 0 0 var(--gold2);transform:rotate(-20deg);margin-bottom:10mm}
+  .cover .sub{font-family:Fraunces,serif;font-style:italic;font-size:14pt;color:var(--gold2);margin-top:5mm}
+  .cover .ln{width:30mm;height:1.5px;background:var(--gold);margin:8mm 0}
+  .stars i{position:absolute;width:1.2mm;height:1.2mm;border-radius:50%;background:#fff;opacity:.5}
+
+  /* método */
+  .steps{display:grid;gap:2.5mm;margin-top:4mm}
+  .st{display:grid;grid-template-columns:9mm 1fr;gap:3mm;background:#fff;border:1px solid var(--line);border-radius:3mm;padding:3mm}
+  .st b.n{font-family:Fraunces,serif;font-size:20pt;color:var(--gold);line-height:1}
+  .st h3{font-size:12pt;margin-bottom:1mm}
+  .st p{font-size:8.8pt;color:var(--ink2)}
+  .breath{margin-top:4mm;border-radius:3mm;background:var(--navy);color:#fff;padding:5mm;display:grid;grid-template-columns:1fr 1fr;gap:3mm;text-align:center}
+  .breath div{border-radius:2mm;padding:3mm;background:rgba(255,255,255,.06)}
+  .breath small{display:block;font-size:7pt;letter-spacing:.2em;color:var(--gold2);text-transform:uppercase;font-weight:700}
+  .breath span{font-family:Fraunces,serif;font-size:12pt}
+
+  /* noite — abertura */
+  .open{display:flex;flex-direction:column;justify-content:center}
+  .open .big{font-family:Fraunces,serif;font-size:80pt;color:var(--gold);line-height:.9}
+  .open h2{font-size:26pt;margin:3mm 0 6mm}
+  .open .th{font-family:Fraunces,serif;font-style:italic;font-size:13pt;color:#AFC0CD}
+  .verse{margin-top:12mm;border-left:2px solid var(--gold);padding-left:5mm}
+  .verse q{font-family:Fraunces,serif;font-size:14pt;color:#fff;quotes:"“" "”"}
+  .verse .r{display:block;margin-top:2mm;font-size:8pt;letter-spacing:.18em;color:var(--gold2);font-weight:700}
+  .bpill{margin-top:12mm;display:flex;gap:3mm;font-size:9pt}
+  .bpill div{flex:1;border:1px solid #33506a;border-radius:2mm;padding:3mm;text-align:center}
+  .bpill small{display:block;font-size:6.5pt;letter-spacing:.18em;color:var(--gold2);font-weight:700}
+  .bpill span{font-family:Fraunces,serif;font-size:11pt;color:#fff}
+
+  /* noite — prática */
+  .sec{margin-top:3.4mm}
+  .sec .k{display:block;margin-bottom:1.5mm}
+  .box{background:#fff;border:1px solid var(--line);border-radius:3mm;padding:3mm 3.5mm}
+  .box.g{border-color:var(--gold);background:#FFF9EE}
+  .pray{font-family:Fraunces,serif;font-style:italic;font-size:9.6pt;color:var(--navy2)}
+  .write{height:13.2mm;background:repeating-linear-gradient(transparent 0 6.3mm,var(--line) 6.3mm 6.6mm);margin-top:2mm}
+
+  /* 3h e ritual */
+  .list{counter-reset:s;margin-top:6mm;display:grid;gap:3mm}
+  .list div{display:grid;grid-template-columns:9mm 1fr;gap:3mm;align-items:start}
+  .list div::before{counter-increment:s;content:counter(s);width:8mm;height:8mm;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:700}
+  .list b{display:block}
+  .list p{color:var(--ink2);font-size:9.5pt}
+  table{width:100%;border-collapse:collapse;margin-top:5mm}
+  td{padding:3mm 2mm;border-bottom:1px dashed var(--line);vertical-align:top}
+  td:first-child{width:22mm;font-weight:700;color:var(--navy2)}
+  td.c{width:8mm}
+  td.c span{display:inline-block;width:4.5mm;height:4.5mm;border:1.5px solid var(--gold);border-radius:1mm}
+  .grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:1.5mm;margin-top:5mm}
+  .grid7 div{border:1.5px solid var(--gold);border-radius:2mm;height:13mm;display:grid;place-items:center;font-family:Fraunces,serif;color:var(--gold);font-size:12pt}
+</style>
+</head>
+<body>
+<div id="book"></div>
+<script src="conteudo.js"></script>
+<script>
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const foot = (l,r) => `<div class="foot"><span>NOITES EM PAZ</span><span>${r||""}</span></div>`;
+let pg = 1, html = "";
+
+// CAPA
+const stars = Array.from({length:22},(_,i)=>`<i style="left:${(i*37)%100}%;top:${(i*53)%60}%;opacity:${.2+((i*7)%5)/10}"></i>`).join("");
+html += `<section class="pg dark cover"><div class="stars">${stars}</div>
+  <div><div class="moon"></div><div class="k">Protocolo de 7 noites</div></div>
+  <div><h1>Noites<br>em Paz</h1><div class="sub">5 minutos antes de deitar<br>para a mente finalmente desligar</div><div class="ln"></div>
+  <div style="font-size:9pt;opacity:.8">Método das Gavetas · Respiração da Palavra</div></div>
+  <div style="font-size:8pt;opacity:.6">Uma série Palavra Secreta</div></section>`;
+
+// COMO FUNCIONA
+html += `<section class="pg"><div class="k">Antes da primeira noite</div>
+  <h2 style="font-size:19pt;margin:2mm 0 3mm">Por que sua mente liga quando você apaga a luz</h2>
+  <p>Durante o dia, tudo que ficou pendente espera na fila. Quando o barulho acaba, a fila anda: a conversa mal resolvida, a conta, a culpa, a lista. A mente não está contra você. Ela só não sabe onde guardar essas coisas.</p>
+  <p>Este protocolo dá a ela um lugar. São <b>7 noites, cada uma para um tipo de pensamento</b> que mais rouba o sono. E um método de 3 passos que você vai repetir até virar reflexo:</p>
+  <div class="steps">
+    <div class="st"><b class="n">1</b><div><h3>Nomear: abrir a gaveta</h3><p>Escreva no papel, à mão, o pensamento exato que está rodando. Pensamento escrito para de girar.</p></div></div>
+    <div class="st"><b class="n">2</b><div><h3>Entregar: fechar a gaveta</h3><p>Leia a Palavra da noite e a oração. Dobre o papel ao meio. O gesto físico avisa o cérebro: “isso está guardado”.</p></div></div>
+    <div class="st"><b class="n">3</b><div><h3>Respirar: a Respiração da Palavra</h3><p>Seis ciclos: inspire em 4 segundos com a primeira metade do versículo e expire em 6 com a segunda. Expirar mais longo do que inspirar ajuda o corpo a desacelerar.</p></div></div>
+  </div>
+  <div class="breath"><div><small>Inspira · 4s</small><span>“Em paz me deito”</span></div><div><small>Expira · 6s</small><span>“e durmo em segurança”</span></div></div>
+  <p style="margin-top:5mm;font-size:9pt;color:var(--ink2)"><b>Guarde as folhas dobradas.</b> Na 7ª noite você vai precisar delas.</p>
+  ${foot("", pg+=1)}</section>`;
+
+// NOITES
+NOITES.forEach(nt => {
+  html += `<section class="pg dark open">
+    <div class="k">Noite ${nt.n} de 7</div>
+    <div class="big">0${nt.n}</div>
+    <h2>${esc(nt.titulo)}</h2>
+    <div class="th">${esc(nt.pensamento)}</div>
+    <div class="verse"><q>${esc(nt.palavra)}</q><span class="r">${nt.ref.toUpperCase()}</span></div>
+    <div class="bpill"><div><small>INSPIRA · 4s</small><span>${esc(nt.inspira)}</span></div><div><small>EXPIRA · 6s</small><span>${esc(nt.expira)}</span></div></div>
+    ${foot("", pg+=1)}</section>`;
+  html += `<section class="pg">
+    <div class="k">Noite ${nt.n} · ${esc(nt.titulo)}</div>
+    <div class="sec">${nt.reflexao.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+    <div class="sec"><span class="k">1 · Abra a gaveta</span><div class="box g">${esc(nt.gaveta)}${nt.n<7?'<div class="write"></div>':''}</div></div>
+    <div class="sec"><span class="k">2 · Entregue</span><div class="box pray">${esc(nt.oracao)}</div></div>
+    <div class="sec"><span class="k">3 · Respire 6 vezes</span><div style="font-size:9.5pt">Inspira <b>“${esc(nt.inspira)}”</b> · expira <b>“${esc(nt.expira)}”</b></div></div>
+    <div class="sec" style="font-size:9pt;color:var(--ink2)"><b style="color:var(--navy2)">Amanhã cedo:</b> ${esc(nt.amanha)}</div>
+    ${foot("", pg+=1)}</section>`;
+});
+
+// 3H DA MANHÃ
+html += `<section class="pg"><div class="k">Bônus · Guarde no criado-mudo</div>
+  <h2 style="font-size:22pt;margin:2mm 0 3mm">${TRES_DA_MANHA.titulo}</h2>
+  <div class="verse" style="margin-top:3mm"><q style="color:var(--navy2);font-size:12pt">${TRES_DA_MANHA.palavra}</q><span class="r" style="color:var(--gold)">${TRES_DA_MANHA.ref.toUpperCase()}</span></div>
+  <div class="list">${TRES_DA_MANHA.passos.map(([a,b])=>`<div><span><b>${a}</b><p>${b}</p></span></div>`).join("")}</div>
+  <p style="margin-top:6mm;font-size:8pt;color:#9a9182">Se a insônia ou a ansiedade forem frequentes ou intensas, procure um médico ou psicólogo. Este material é de apoio e não substitui acompanhamento profissional.</p>
+  ${foot("", pg+=1)}</section>`;
+
+// RITUAL 21H (imprimível)
+html += `<section class="pg"><div class="k">Para imprimir e colar no espelho</div>
+  <h2 style="font-size:22pt;margin:2mm 0 1mm">Ritual das 21h</h2>
+  <p style="color:var(--ink2);font-size:9.5pt">Marque cada noite que completar. Sete quadrados, sete noites.</p>
+  <table>${RITUAL.map(([h,t])=>`<tr><td>${h}</td><td>${t}</td><td class="c"><span></span></td></tr>`).join("")}</table>
+  <div class="grid7">${[1,2,3,4,5,6,7].map(n=>`<div>${n}</div>`).join("")}</div>
+  ${foot("", pg+=1)}</section>`;
+
+// FECHAMENTO + PRÓXIMO PASSO
+html += `<section class="pg dark open">
+  <div class="k">Depois da 7ª noite</div>
+  <h2 style="font-size:24pt;margin:3mm 0 5mm">Você aprendeu a fechar o dia. Agora, aprenda a abrir.</h2>
+  <p>As noites ficam mais leves quando os dias também ficam. O <b style="color:#fff">Palavra Secreta: Método 3P em 30 Dias</b> leva o mesmo princípio para a manhã: uma palavra, uma pausa e uma prática de 5 minutos para enfrentar o dia, em 30 dias divididos em Acalmar, Soltar, Reconstruir e Seguir.</p>
+  <p style="margin-top:6mm;color:var(--gold2)">Como você já é do Noites em Paz, o acesso tem condição especial. Procure o link no e-mail de compra.</p>
+  ${foot("", pg+=1)}</section>`;
+
+document.getElementById("book").innerHTML = html;
+</script>
+</body>
+</html>
